@@ -2,6 +2,8 @@
 DASHBOARD_USER=${DASHBOARD_USER:-admin}
 DASHBOARD_PASS=${DASHBOARD_PASS:-sensu}
 SENSU_HOST=${SENSU_HOST:-localhost}
+RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
+REDIS_HOST=${REDIS_HOST:-redis}
 SKIP_CONFIG=${SKIP_CONFIG:-}
 SENSU_CONFIG_URL=${SENSU_CONFIG_URL:-}
 SENSU_CLIENT_CONFIG_URL=${SENSU_CLIENT_CONFIG_URL:-}
@@ -15,24 +17,18 @@ else
 {
   "rabbitmq": {
     "port": 5672,
-    "host": "$SENSU_HOST",
-    "user": "guest",
-    "password": "guest",
-    "vhost": "/"
+    "host": "$RABBITMQ_HOST",
+    "user": "sensu",
+    "password": "sensu",
+    "vhost": "/sensu"
   },
   "redis": {
-    "host": "$SENSU_HOST",
+    "host": "$REDIS_HOST",
     "port": 6379
   },
   "api": {
     "host": "$SENSU_HOST",
     "port": 4567
-  },
-  "dashboard": {
-    "host": "$SENSU_HOST",
-    "port": 8080,
-    "user": "$DASHBOARD_USER",
-    "password": "$DASHBOARD_PASS"
   },
   "handlers": {
     "default": {
