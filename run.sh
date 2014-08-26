@@ -20,7 +20,7 @@ else
     "host": "$RABBITMQ_HOST",
     "user": "sensu",
     "password": "sensu",
-    "vhost": "/sensu"
+    "vhost": "/"
   },
   "redis": {
     "host": "$REDIS_HOST",
